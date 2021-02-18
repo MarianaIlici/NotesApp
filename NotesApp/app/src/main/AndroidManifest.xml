@@ -17,19 +17,14 @@
         android:theme="@style/Theme.NotesApp"
         tools:targetApi="q">
         <activity android:name=".activities.Login"></activity>
-        <activity android:name=".activities.Register">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".activities.MainActivity">
         </activity>
         <activity
             android:name=".activities.CreateNoteActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.Register"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>

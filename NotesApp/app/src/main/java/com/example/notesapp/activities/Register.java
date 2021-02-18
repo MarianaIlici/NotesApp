@@ -96,6 +96,7 @@ public class Register<v> extends AppCompatActivity {
                         }
                     });
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
 
                 } else {
                     Toast.makeText(Register.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT);
@@ -110,6 +111,7 @@ public class Register<v> extends AppCompatActivity {
         mLoginBtn.setOnClickListener((v) -> {
 
             startActivity(new Intent(getApplicationContext(), Login.class));
+            finish();
         });
     }
 }

@@ -19,6 +19,7 @@ import com.example.notesapp.adapters.NotesAdapter;
 import com.example.notesapp.database.NotesDatabase;
 import com.example.notesapp.entities.Note;
 import com.example.notesapp.listeners.NotesListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,5 +121,11 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 getNotes(REQUEST_CODE_UPDATE_NOTE, data.getBooleanExtra("isNoteDeleted",false));
             }
         }
+    }
+
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
     }
 }

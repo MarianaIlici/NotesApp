@@ -7,26 +7,28 @@
     android:background="@color/colorDefaultNoteColor"
     tools:context=".activities.MainActivity">
 
+
     <TextView
         android:id="@+id/textMyNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+
         android:text="@string/my_notes"
         android:textColor="@color/colorMiscellaneousBackground"
         android:textSize="@dimen/_30ssp"
-
+        app:layout_constraintBottom_toTopOf="@+id/notesRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/_2sdp"
-        android:layout_marginEnd="@dimen/_2sdp"
         android:clipToPadding="false"
         android:paddingStart="0dp"
         android:paddingEnd="@dimen/_12sdp"
@@ -34,7 +36,8 @@
         app:layout_constraintBottom_toTopOf="@id/layoutQuickActions"
         app:layout_constraintTop_toBottomOf="@id/textMyNotes"
 
-        />
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-27dp" />
 
     <LinearLayout
         android:id="@+id/layoutQuickActions"
@@ -64,6 +67,18 @@
         app:tint="@color/colorMiscellaneousBackground"
 
         />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:text="Logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="logout"
+         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
