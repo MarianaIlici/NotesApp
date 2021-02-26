@@ -1,40 +1,32 @@
 package com.example.notesapp.entities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-@Entity(tableName = "notes")
 
 public class Note implements Serializable {
 
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-    @ColumnInfo(name = "title")
+    private String id;
     private String title;
-    @ColumnInfo(name = "date_time")
     private String dateTime;
-    @ColumnInfo(name = "subtitle")
     private String subtitle;
-    @ColumnInfo(name = "note_text")
     private String noteText;
-    @ColumnInfo(name = "image_path")
     private String imagePath;
-    @ColumnInfo(name = "color")
     private String color;
-    @ColumnInfo(name = "web_link")
     private String webLink;
 
+    public Note() {
 
-    public int getId() {
+    }
+
+    public String  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -95,14 +87,22 @@ public class Note implements Serializable {
     }
 
 
-
     @NonNull
     @Override
-    public String toString(){
+    public String toString() {
         return title + " : " + dateTime;
     }
 
-
-
-
+    public Map<String, Object> dataToDataBase() {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("id", this.id);
+        hashMap.put("title", this.title);
+        hashMap.put("dataTime", this.dateTime);
+        hashMap.put("subtitle", this.subtitle);
+        hashMap.put("noteText", this.noteText);
+        hashMap.put("imagePath", this.imagePath);
+        hashMap.put("color", this.color);
+        hashMap.put("webLink", this.webLink);
+        return hashMap;
+    }
 }

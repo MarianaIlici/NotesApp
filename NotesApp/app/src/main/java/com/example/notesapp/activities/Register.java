@@ -1,6 +1,5 @@
 package com.example.notesapp.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,16 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.notesapp.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-public class Register<v> extends AppCompatActivity {
+public class Register extends AppCompatActivity {
     public static final String TAG = "TAG";
     EditText mFullName, mEmail, mPassword, mPhone;
     Button mRegisterBtn;
@@ -50,6 +48,8 @@ public class Register<v> extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
+
+
 
         if (fAuth.getCurrentUser() != null) {
 
@@ -84,22 +84,12 @@ public class Register<v> extends AppCompatActivity {
                     user.put("fullName", fullName);
                     user.put("email", email);
                     user.put("phone", phone);
-                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "onSuccess: user Profile is created for " + userID);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.d(TAG, "onFailure :" + e.toString());
-                        }
-                    });
+                    documentReference.set(user).addOnSuccessListener(aVoid -> Log.d(TAG, "onSuccess: user Profile is created for " + userID)).addOnFailureListener(e -> Log.d(TAG, "onFailure :" + e.toString()));
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     finish();
 
                 } else {
-                    Toast.makeText(Register.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT);
+                    Toast.makeText(Register.this, "Error! " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
 
                 }
