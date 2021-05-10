@@ -73,6 +73,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
+        setContentView(R.layout.activity_create_note);
 
         ImageView imageBack = findViewById(R.id.imageBack);
         imageBack.setOnClickListener(v -> onBackPressed());
@@ -96,7 +97,12 @@ public class CreateNoteActivity extends AppCompatActivity {
         );
 
         ImageView imageSave = findViewById(R.id.imageSave);
-        imageSave.setOnClickListener(v -> saveNote());
+        imageSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreateNoteActivity.this.saveNote();
+            }
+        });
 
         selectedNoteColor = "#333333";
         selectedImagePath = "";
@@ -142,10 +148,13 @@ public class CreateNoteActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
+
         if (inputNoteTitle.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Note title can't be empty!", Toast.LENGTH_SHORT).show();
             return;
-        } else if (inputNoteSubtitle.getText().toString().trim().isEmpty() && inputNoteText.getText().toString().trim().isEmpty()) {
+        }
+
+        if (inputNoteSubtitle.getText().toString().trim().isEmpty() && inputNoteText.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Note can't be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -158,6 +167,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setDateTime(textDateTime.getText().toString());
         note.setColor(selectedNoteColor);
         note.setImagePath(selectedImagePath);
+        note.setPublisher(userId);
         if (layoutWebURL.getVisibility() == View.VISIBLE) {
             note.setWebLink(textWebURL.getText().toString());
         }
@@ -197,15 +207,18 @@ public class CreateNoteActivity extends AppCompatActivity {
         final TextView pickColor = layoutMiscellaneous.findViewById(R.id.pickColor);
 
 
-        layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(v -> {
-            selectedNoteColor = "#333333";
-            pickColor.setTextColor(Color.parseColor("#333333"));
-            imageColor1.setImageResource(R.drawable.ic_done);
-            imageColor2.setImageResource(0);
-            imageColor3.setImageResource(0);
-            imageColor4.setImageResource(0);
-            imageColor5.setImageResource(0);
-            setSubtitleIndicatorColor();
+        layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedNoteColor = "#333333";
+                pickColor.setTextColor(Color.parseColor("#333333"));
+                imageColor1.setImageResource(R.drawable.ic_done);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                CreateNoteActivity.this.setSubtitleIndicatorColor();
+            }
         });
 
         layoutMiscellaneous.findViewById(R.id.viewColor2).setOnClickListener(v -> {

@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:id="@+id/layoutNote"
-
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/_12sdp"
     android:layout_marginTop="@dimen/_12sdp"
     android:background="@drawable/background_note"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutPublisher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/share_icon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share_user" />
+
+        <TextView
+            android:id="@+id/textPublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="Hello"
+            android:textColor="@color/colorNoteSubtitleText"
+            android:textSize="@dimen/_12ssp" />
+    </LinearLayout>
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageNote"
@@ -18,41 +43,94 @@
         android:adjustViewBounds="true"
         android:visibility="gone"
         app:riv_corner_radius_top_left="@dimen/_10sdp"
-        app:riv_corner_radius_top_right="@dimen/_10sdp"
-        />
+        app:riv_corner_radius_top_right="@dimen/_10sdp" />
 
-    <TextView
-        android:id="@+id/textTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_13ssp"
-        />
+        android:layout_marginTop="8dp"
+        android:weightSum="8">
 
-    <TextView
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="7"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/share_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_share" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textSubtitle"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:layout_marginBottom="@dimen/_4sdp"
-        android:textColor="@color/colorNoteSubtitleText"
-        android:textSize="@dimen/_12ssp"
-        />
-
-    <TextView
-        android:id="@+id/textDateTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:textColor="@color/colorNoteSubtitleText"
-        android:textSize="@dimen/_7ssp"
-        />
+        android:layout_marginBottom="@dimen/_4sdp">
+
+        <TextView
+            android:id="@+id/textSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:textColor="@color/colorNoteSubtitleText"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/textDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textSubtitle"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textColor="@color/colorNoteSubtitleText"
+            android:textSize="@dimen/_7ssp" />
+
+    </RelativeLayout>
+    <!--
+
+        <TextView
+            android:id="@+id/textSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:textColor="@color/colorNoteSubtitleText"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/textDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:textColor="@color/colorNoteSubtitleText"
+            android:textSize="@dimen/_7ssp" />
+    -->
+
+    <!-- <ImageView
+         android:id="@+id/share_icon"
+         android:layout_height="50dp"
+         android:layout_width="50dp"
+         android:scaleType="centerInside"
+         android:src="@drawable/ic_share"
+         android:gravity="center_horizontal"
+         android:padding="5dip"/>-->
 
 </LinearLayout>

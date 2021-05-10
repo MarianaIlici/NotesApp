@@ -10,10 +10,14 @@
     <string name="add">ADD</string>
     <string name="cancel_dialog">CANCEL</string>
     <string name="delete_note">Delete Note</string>
+    <string name="share_note">Share Note</string>
     <string name="are_you_sure_you_want_to_delete_this_note">Are you sure you want to delete this note?</string>
+    <string name="are_you_sure_you_want_to_share_this_note">Are you sure you want to share this note?</string>
     <string name="more_options">More Options</string>
     <string name="my_notes">My Notes</string>
     <string name="fullName">fullName</string>
     <string name="full_name">mFullName</string>
     <string name="mFullName">mFullName</string>
+    <string name="enter_email_of_receiver">Enter email of receiver</string>
+    <string name="enter_name_of_receiver">Enter name of receiver</string>
 </resources>

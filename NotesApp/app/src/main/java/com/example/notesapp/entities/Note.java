@@ -17,12 +17,13 @@ public class Note implements Serializable {
     private String imagePath;
     private String color;
     private String webLink;
+    private String publisher;
 
     public Note() {
 
     }
 
-    public String  getId() {
+    public String getId() {
         return id;
     }
 
@@ -86,23 +87,25 @@ public class Note implements Serializable {
         this.webLink = webLink;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return title + " : " + dateTime;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public Map<String, Object> dataToDataBase() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", this.id);
         hashMap.put("title", this.title);
-        hashMap.put("dataTime", this.dateTime);
+        hashMap.put("dateTime", this.dateTime);
         hashMap.put("subtitle", this.subtitle);
         hashMap.put("noteText", this.noteText);
         hashMap.put("imagePath", this.imagePath);
         hashMap.put("color", this.color);
         hashMap.put("webLink", this.webLink);
+        hashMap.put("publisher", this.publisher);
         return hashMap;
     }
 }

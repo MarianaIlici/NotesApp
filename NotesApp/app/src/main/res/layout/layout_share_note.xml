@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layoutDeleteNoteContainer"
+    android:id="@+id/layoutShareNoteContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -9,13 +9,13 @@
     android:background="@drawable/background_dialog">
 
     <ImageView
-        android:id="@+id/imageDeleteNote"
+        android:id="@+id/imageShareNote"
         android:layout_width="@dimen/_25sdp"
         android:layout_height="@dimen/_25sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_delete"
+        android:src="@drawable/ic_share"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white" />
@@ -25,16 +25,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:text="@string/delete_note"
+        android:text="@string/share_note"
         android:textColor="@color/white"
         android:textSize="@dimen/_14ssp"
-        app:layout_constraintBottom_toBottomOf="@id/imageDeleteNote"
+        app:layout_constraintBottom_toBottomOf="@id/imageShareNote"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageDeleteNote"
-        app:layout_constraintTop_toTopOf="@id/imageDeleteNote" />
+        app:layout_constraintStart_toEndOf="@id/imageShareNote"
+        app:layout_constraintTop_toTopOf="@id/imageShareNote" />
 
     <TextView
-        android:id="@+id/textDeleteNoteMessage"
+        android:id="@+id/textShareNoteMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
@@ -43,26 +43,58 @@
         android:gravity="center_vertical"
         android:paddingStart="@dimen/_8sdp"
         android:paddingEnd="@dimen/_8sdp"
-        android:text="@string/are_you_sure_you_want_to_delete_this_note"
+        android:text="@string/are_you_sure_you_want_to_share_this_note"
         android:textColor="@color/white"
         android:textSize="@dimen/_13ssp"
-        app:layout_constraintTop_toBottomOf="@id/imageDeleteNote" />
+        app:layout_constraintTop_toBottomOf="@id/imageShareNote" />
+
+    <EditText
+        android:id="@+id/textDestinationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_name_of_receiver"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/textShareNoteMessage" />
+
+    <EditText
+        android:id="@+id/textDestinationEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_email_of_receiver"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13ssp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/textDestinationName" />
 
     <TextView
-        android:id="@+id/textDeleteNote"
+        android:id="@+id/textShareNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:padding="@dimen/_8sdp"
-        android:text="@string/delete_note"
+        android:text="@string/share_note"
         android:textAllCaps="true"
-        android:textColor="@color/colorDelete"
+        android:textColor="@color/design_default_color_secondary"
         android:textSize="@dimen/_13ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textDeleteNoteMessage" />
+        app:layout_constraintTop_toBottomOf="@id/textDestinationEmail" />
 
     <TextView
         android:id="@+id/textCancel"
@@ -77,8 +109,7 @@
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/_13ssp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/textDeleteNote"
-        app:layout_constraintTop_toBottomOf="@id/textDeleteNoteMessage" />
-
+        app:layout_constraintEnd_toStartOf="@id/textShareNote"
+        app:layout_constraintTop_toBottomOf="@id/textDestinationEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
